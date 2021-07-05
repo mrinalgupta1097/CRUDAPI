@@ -20,6 +20,19 @@ public class CustomerServiceImpl implements CustomerService {
 
 
     @Override
+    public Integer addCustomer(CustomerDto customer) throws BankException {
+
+        Customer customerEntity = new Customer();
+        customerEntity.setCustomerId(customer.getCustomerId());
+        customerEntity.setEmailId(customer.getEmailId());
+        customerEntity.setName(customer.getName());
+        customerEntity.setDateOfBirth(customer.getDateOfBirth());
+
+        Customer customer2 = customerRepository.save(customerEntity);
+        return customerEntity.getCustomerId();
+    }
+
+    @Override
     public CustomerDto getCustomer(Integer customerId) throws BankException {
 
         Optional<Customer> optional = customerRepository.findById(customerId);
