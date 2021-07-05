@@ -7,6 +7,10 @@ import java.util.List;
 
 
 public interface CustomerService {
+//    create operation
+    Integer addCustomer(CustomerDto customer) throws BankException;
+
+//    read operations
     CustomerDto getCustomer(Integer customerId) throws BankException;
 
     List<CustomerDto> getAllCustomers() throws BankException;
